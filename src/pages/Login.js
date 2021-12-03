@@ -24,7 +24,7 @@ const Login = () => {
     
     useEffect(() => {
         if(password.length>4 && email.length>10 && email.includes("@")){
-            setBgColor("green-300")
+            setBgColor("blue-300")
             setCursor("pointer")
         }else{
             setBgColor("gray-500")
