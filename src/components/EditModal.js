@@ -5,6 +5,10 @@ import { updateNote } from "../services/api";
 import { useParams, useHistory } from 'react-router-dom';
 import NoteContext from '../context/notes/NoteContext';
 import Alert from './Alert';
+
+
+
+
 export default function Example({ noteInfo }) {
   const params = useParams();
 
@@ -19,11 +23,24 @@ export default function Example({ noteInfo }) {
   const [hide, sethide] = useState("hidden");
   const [color, setcolor] = useState("")
   const [updateNoteInfo, setupdateNoteInfo] = useState({
-    title: noteInfo.title,
-    description: noteInfo.description,
-    tag: noteInfo.tag,
-    id: params.id
+    title: noteInfo?.title,
+    description: noteInfo?.description,
+    tag: noteInfo?.tag,
+    id: params?.id
   })
+  useEffect(() => {
+    
+    setTimeout(() => {
+      
+      setupdateNoteInfo({
+        title: noteInfo?.title,
+        description: noteInfo?.description,
+        tag: noteInfo?.tag,
+        id: params?.id
+      })
+    }, 1000);
+  }, [open])
+  
 
 
 
